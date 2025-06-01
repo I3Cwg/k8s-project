@@ -77,5 +77,6 @@ jobs:
           script: |
             aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 053277883308.dkr.ecr.ap-southeast-2.amazonaws.com
             docker pull 053277883308.dkr.ecr.ap-southeast-2.amazonaws.com/k8s-project:latest
-            docker-compose down
-            docker-compose up -d
+            docker stop my-app || true
+            docker rm my-app || true
+            docker run -d --name my-app -p 80:5000 053277883308.dkr.ecr.ap-southeast-2.amazonaws.com/k8s-project:latest
