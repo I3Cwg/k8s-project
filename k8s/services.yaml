@@ -1,0 +1,11 @@
+apiVersion: app/v1
+kind: Service
+metadata:
+  name: FlaskApp-Service
+spec:
+  selector:
+    app: FlaskApp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
