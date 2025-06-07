@@ -71,7 +71,7 @@ jobs:
 
       - name: Port forward test
         run: |
-          POD_NAME=$(minikube kubectl -- get pod -l app=flask -o jsonpath="{.items[0].metadata.name}")
+          POD_NAME=$(minikube kubectl -- get pod -l app=flaskapp -o jsonpath="{.items[0].metadata.name}")
           echo "Forwarding port for $POD_NAME..."
           nohup minikube kubectl -- port-forward pod/$POD_NAME 5000:5000 &
           sleep 5
