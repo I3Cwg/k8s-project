@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: FlaskApp-Service
+  name: flaskapp-service    
 spec:
   selector:
-    app: FlaskApp
+    app: flaskapp       
   ports:
     - protocol: TCP
-      port: 80         
-      targetPort: 5000 
-  type: ClusterIP    
+      port: 80
+      targetPort: 5000
+  type: ClusterIP

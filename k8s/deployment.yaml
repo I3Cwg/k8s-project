@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: FlaskApp-Deployment
+  name: flaskapp-deployment 
   labels: 
-    app: FlaskApp
+    app: flaskapp          
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: FlaskApp
+      app: flaskapp
   template:
     metadata:
       labels:
-        app: FlaskApp
+        app: flaskapp
     spec:
       containers:
-      - name: FlaskApp
+      - name: flaskapp      
         image: i3cwg/k8s-project:latest
         ports:
         - containerPort: 5000
