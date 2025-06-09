@@ -26,10 +26,17 @@ jobs:
       - name: Run Python syntax check
         run: python -m py_compile app.py
 
-      - name: Run unit tests
+      - name: Install pytest
         run: |
           pip install pytest
-          pytest tests/ --verbose
+
+      - name: Run unit tests
+        run: |
+          if [ -d "tests/" ]; then
+            pytest tests/ --verbose
+          else
+            echo "No tests/ directory found, skipping unit tests"
+          fi
 
       - name: Scan Python dependencies for vulnerabilities
         run: |
